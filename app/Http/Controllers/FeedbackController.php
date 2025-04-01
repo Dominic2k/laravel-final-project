@@ -2,11 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\FeedbackRequest;
+use App\Models\Feedback;
 
 class FeedbackController extends Controller
 {
     public function getIndex() {
-        return view('Page.contact');
+        $feedbacks = Feedback::query()->get();
+        return view('Page.contact', compact('feedbacks'));
+    }
+
+    public function postFeedback(FeedbackRequest  $request) {
+        {
+            Feedback::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'message' => $request->message,
+            ]);
+            return redirect()->route('homepage')->with('success', 'Your feedback has been sent.');
+        }
     }
 }
