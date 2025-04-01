@@ -6,4 +6,5 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [HomeController::class,'getIndex'])->name('homepage');
-Route::get('/feedback', array(FeedbackController::class,'getIndex'))->name('feedback');
+Route::get('/feedback', [FeedbackController::class,'getIndex'])->name('feedback');
+Route::post('/feedback', [FeedbackController::class,'postFeedback'])->name('postFeedback');
