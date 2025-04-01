@@ -59,6 +59,14 @@
 
 <!-- Template Javascript -->
 <script src="{{ asset('source/js/main.js') }}"></script>
+
+@if(Auth::check())
+    <form action="{{ route('logout') }}" method="POST">
+        @csrf
+        <button type="submit" class="btn btn-danger">Đăng Xuất</button>
+    </form>
+@endif
+
 </body>
 
 </html>
