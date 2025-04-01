@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\View;
+
 
 use App\Models\Chefs;
 use App\Models\Feedback;
@@ -17,8 +19,8 @@ class HomeController extends Controller
         if ($foods->isEmpty() || $drinks->isEmpty() || $others->isEmpty()) {
             return view('Page.homepage', ['foods' => [], 'drinks' => [], 'other' => [], 'message' => 'Nothing found for this category.']);
         }
-
         $chefs = Chefs::query()->get();
         return view('Page.homepage', compact('foods', 'drinks', 'others', 'chefs', 'feedbacks'));
     }
 }
+
