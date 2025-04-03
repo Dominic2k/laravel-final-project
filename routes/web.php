@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -19,3 +20,5 @@ Route::get('/login', [UserController::class, 'showLogin'])->name('login');
 Route::post('/login', [UserController::class, 'login']);
 //Logout
 Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+
+Route::get('/admin', [AdminController::class, 'showDashboard'])->name('dashboard');

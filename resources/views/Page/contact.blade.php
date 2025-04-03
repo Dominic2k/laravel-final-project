@@ -50,32 +50,42 @@
                 </div>
                 <div class="col-md-6">
                     <div class="wow fadeInUp" data-wow-delay="0.2s">
-                        <form action="{{ route('postFeedback') }}" method="POST">
+                        <form id="feedback-form" action="{{ route('postFeedback') }}" method="POST">
                             @csrf
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="name" name="name" placeholder="Your Name">
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
                                         <label for="name">Your Name</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="email" class="form-control" id="email" name="email" placeholder="Your Email">
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
                                         <label for="email">Your Email</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <textarea class="form-control" placeholder="Leave a message here" id="message" name="message" style="height: 250px"></textarea>
+                                        <textarea class="form-control" placeholder="Leave a message here" id="message" name="message" style="height: 250px" required></textarea>
                                         <label for="message">Message</label>
                                     </div>
+                                </div>
+
+                                <!-- Phần reCAPTCHA -->
+                                <div class="col-12">
+                                    <div class="g-recaptcha" data-sitekey="{{ $recaptchaSiteKey }}"></div>
+                                    @error('g-recaptcha-response')
+                                    <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="col-12">
                                     <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
                                 </div>
                             </div>
                         </form>
+
+                        <!-- Thêm script reCAPTCHA -->
                     </div>
                 </div>
             </div>
@@ -83,4 +93,5 @@
     </div>
     <!-- Contact End -->
 </div>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 @endsection
