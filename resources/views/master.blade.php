@@ -30,6 +30,10 @@
 
     <!-- Template Stylesheet -->
     <link href="{{ asset('source/css/style.css') }}" rel="stylesheet">
+
+    <!-- Css of about us page -->
+    <link rel="stylesheet" href="{{ asset('css/aboutUs.css') }}">
+
 </head>
 
 <body>

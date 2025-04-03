@@ -477,3 +477,36 @@
     padding-right: 0;
     border-right: none;
 }
+
+/* Detail product */
+.beta-btn {
+    margin-top: 5px;
+    background-color: gold;
+    border: 2px solid firebrick;
+    border-radius: 10px;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+}
+
+.quantity-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.quantity-container button {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+}
+
+.col-sm-9 {
+    min-height: 290px;
+}
+
+.col-sm-3 {
+    position: absolute;
+    right: 0;
+    top: 150px; 
+}
