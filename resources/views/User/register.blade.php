@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="d-flex justify-content-center align-items-center vh-100">
-    <div class="card shadow p-4" style="width: 400px;">
+    <div class="card shadow p-4 mt-5" style="width: 400px;">
         <h4 class="text-center font-weight-bold">Register</h4>
 
         <form action="{{ route('register') }}" method="POST">
@@ -39,7 +39,7 @@
                 <input type="text" name="address" class="form-control" required>
             </div>
             <button type="submit" class="btn btn-primary btn-block mt-3">SIGN UP</button>
-            
+
         </form>
 
         <p class="text-center mt-3">Already have an account? <a href="{{ route('login') }}">Login</a></p>

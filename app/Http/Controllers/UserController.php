@@ -30,14 +30,14 @@ class UserController extends Controller
             'phone' => 'nullable|digits_between:10,15',
             'address' => 'nullable|string|max:255',
         ]);
-    
-        $user = User::create($validated);
-    
-        return redirect()->route('homepage')->with('success', 'Đăng ký thành công!');
-    }
-    
 
-    
+        $user = User::create($validated);
+
+        return redirect()->route('login')->with('success', 'Đăng ký thành công!');
+    }
+
+
+
 
     /**
      * Hiển thị trang đăng nhập
@@ -56,21 +56,21 @@ class UserController extends Controller
             'email' => 'required|email',
             'password' => 'required',
         ]);
-    
+
         // Kiểm tra nếu thông tin đăng nhập đúng
         if (Auth::attempt($request->only('email', 'password'))) {
             $request->session()->regenerate();
             return redirect()->route('homepage')->with('success', 'Đăng nhập thành công!');
         }
-    
+
         return back()->withErrors([
             'email' => 'Email hoặc mật khẩu không chính xác!',
         ]);
     }
-    
 
 
-    
+
+
     /**
      * Xử lý đăng xuất
      */
@@ -79,9 +79,9 @@ class UserController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-    
+
         return redirect()->route('login')->with('success', 'Bạn đã đăng xuất!');
     }
-    
+
 }
 
