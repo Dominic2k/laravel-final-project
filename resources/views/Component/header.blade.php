@@ -9,8 +9,7 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto py-0 pe-4">
             <a href="{{ route('homepage') }}" class="nav-item nav-link active">Home</a>
-            <a href="javascript:void(0)" class="nav-item nav-link">About</a>
-            <a href="javascript:void(0)" class="nav-item nav-link">Service</a>
+            <a href="javascript:void(0)" class="nav-item nav-link">About us</a>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Categories</a>
                 <div class="dropdown-menu m-0">
@@ -20,7 +19,8 @@
                 </div>
             </div>
             <a href="{{ route('feedback') }}" class="nav-item nav-link">Feedback</a>
+            <a href="{{ route('feedback') }}" class="nav-item nav-link">Booking</a>
         </div>
-        <a href="" class="btn btn-primary py-2 px-4">Book A Table</a>
+        <a href="{{ route('login') }}" class="btn btn-primary py-2 px-4">Sign in</a>
     </div>
 </nav>
