@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\View;
+
 
 use App\Models\Chefs;
 use App\Models\Feedback;
@@ -21,3 +23,4 @@ class HomeController extends Controller
         return view('Page.homepage', compact('foods', 'drinks', 'others', 'chefs', 'feedbacks'));
     }
 }
+
