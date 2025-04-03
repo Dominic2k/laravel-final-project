@@ -21,6 +21,19 @@
             <a href="{{ route('feedback') }}" class="nav-item nav-link">Feedback</a>
             <a href="{{ route('feedback') }}" class="nav-item nav-link">Booking</a>
         </div>
-        <a href="{{ route('login') }}" class="btn btn-primary py-2 px-4">Sign in</a>
+
+        @auth
+            <div class="d-flex align-items-center">
+                <a href=""><span class="text-warning me-3 text-uppercase">Hello, {{ auth()->user()->username }}</span></a>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-primary py-2 px-4">Sign Out</button>
+                </form>
+            </div>
+        @endauth
+
+        @guest
+            <a href="{{ route('login') }}" class="btn btn-primary py-2 px-4">Sign in</a>
+        @endguest
     </div>
 </nav>
