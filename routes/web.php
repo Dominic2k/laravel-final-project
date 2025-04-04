@@ -18,3 +18,9 @@ Route::get('/login', [UserController::class, 'showLogin'])->name('login');
 Route::post('/login', [UserController::class, 'login']);
 
 Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+
+Route::get('forgot-password', [UserController::class, 'showForgotPasswordForm'])->name('password.request');
+Route::post('forgot-password', [UserController::class, 'sendResetPasswordLink'])->name('password.email');
+Route::get('reset-password/{token}', [UserController::class, 'showResetPasswordForm'])->name('password.reset');
+Route::post('reset-password', [UserController::class, 'resetPassword'])->name('password.update');
+
