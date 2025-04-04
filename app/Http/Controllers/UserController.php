@@ -34,14 +34,14 @@ class UserController extends Controller
             'phone' => 'nullable|digits_between:10,15',
             'address' => 'nullable|string|max:255',
         ]);
-    
-        $user = User::create($validated);
-    
-        return redirect()->route('login')->with('success', 'Resgister Successfully!');
-    }
-    
 
-    
+        $user = User::create($validated);
+        return redirect()->route('login')->with('success', 'Resgister Successfully!');
+
+    }
+
+
+
 
     /**
      * Hiển thị trang đăng nhập
@@ -70,10 +70,6 @@ class UserController extends Controller
         'email' => 'Email or password is incorrect!',
     ]);
 }
-    
-
-
-    
     /**
      * Xử lý đăng xuất
      */
@@ -121,6 +117,7 @@ class UserController extends Controller
     }
 
     return back()->with('status', 'We have emailed your password reset link!');
+
 }
  
      // Hiển thị form reset mật khẩu
