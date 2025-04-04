@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Restoran - Bootstrap Restaurant Template</title>
+    <title>Ondakino - Restaurant</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -63,6 +63,14 @@
 
 <!-- Template Javascript -->
 <script src="{{ asset('source/js/main.js') }}"></script>
+
+@if(Auth::check())
+    <form action="{{ route('logout') }}" method="POST">
+        @csrf
+        <button type="submit" class="btn btn-danger">Đăng Xuất</button>
+    </form>
+@endif
+
 </body>
 
 </html>

@@ -140,9 +140,9 @@
         top: 0;
         left: 0;
         z-index: 999;
-        background: transparent !important;
+        /*background: transparent !important;*/
     }
-    
+
     .sticky-top.navbar-dark {
         position: fixed;
         background: var(--dark) !important;
@@ -162,10 +162,10 @@
     animation: imgRotate 50s linear infinite;
 }
 
-@keyframes imgRotate { 
-    100% { 
-        transform: rotate(360deg); 
-    } 
+@keyframes imgRotate {
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .breadcrumb-item + .breadcrumb-item::before {
@@ -478,35 +478,10 @@
     border-right: none;
 }
 
-/* Detail product */
-.beta-btn {
-    margin-top: 5px;
-    background-color: gold;
-    border: 2px solid firebrick;
-    border-radius: 10px;
-    font-weight: bold;
-    color: black;
-    cursor: pointer;
-}
-
-.quantity-container {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.quantity-container button {
-    width: 30px;
-    height: 30px;
-    font-size: 18px;
-}
-
-.col-sm-9 {
-    min-height: 290px;
-}
-
-.col-sm-3 {
-    position: absolute;
-    right: 0;
-    top: 150px; 
+.text-truncate-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
