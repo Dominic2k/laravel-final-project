@@ -23,7 +23,11 @@
                 <input type="password" name="password" class="form-control" required>
             </div>
 
-            <button type="submit" class="btn btn-primary btn-block mt-3">LOGIN</button>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+                <button type="submit" class="btn btn-primary">LOGIN</button>
+                <a href="{{ route('password.request') }}" class="text-decoration-none">Forgot Password?</a>
+            </div>
+
         </form>
 
         <p class="text-center mt-3">Don't have an account? <a href="{{ route('register') }}">Sign up</a></p>
