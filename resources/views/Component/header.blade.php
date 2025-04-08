@@ -9,7 +9,7 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto py-0 pe-4">
             <a href="{{ route('homepage') }}" class="nav-item nav-link active">Home</a>
-            <a href="javascript:void(0)" class="nav-item nav-link">About us</a>
+            <a href="{{ route('aboutus')}}" class="nav-item nav-link">About us</a>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Categories</a>
                 <div class="dropdown-menu m-0">

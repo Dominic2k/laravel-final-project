@@ -5,7 +5,8 @@ use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-
+use App\Http\Controllers\ProductController;
+use App\Models\Product;
 
 //Home
 Route::get('/', [HomeController::class,'getIndex'])->name('homepage');
@@ -28,3 +29,7 @@ Route::get('reset-password/{token}', [UserController::class, 'showResetPasswordF
 Route::post('reset-password', [UserController::class, 'resetPassword'])->name('password.update');
 
 Route::get('/admin', [AdminController::class, 'showDashboard'])->name('dashboard');
+
+Route::get('/details/{id}', [ProductController::class, 'getDetail']);
+
+Route::get('/about_us', [HomeController::class, 'showAboutUs'])->name('aboutus');

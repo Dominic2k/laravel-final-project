@@ -163,7 +163,7 @@
                         @foreach($drinks as $drink)
                             <div class="col-lg-6">
                                 <div class="d-flex align-items-center">
-                                    <img class="flex-shrink-0 img-fluid rounded" src="source/img/{{ $drink->image }}" alt="" style="width: 80px; height: 80px; object-fit: cover;object-position: center">
+                                    <a href="details/{{$drink->product_id}}"><img class="flex-shrink-0 img-fluid rounded" src="source/img/{{ $drink->image }}" alt="" style="width: 80px; height: 80px; object-fit: cover;object-position: center"></a>
                                     <div class="w-100 d-flex flex-column text-start ps-4">
                                         <h5 class="d-flex justify-content-between border-bottom pb-2">
                                             <span>{{ $drink->product_name }}</span>
@@ -185,7 +185,7 @@
                         @foreach($foods as $food)
                         <div class="col-lg-6">
                             <div class="d-flex align-items-center">
-                                <img class="flex-shrink-0 img-fluid rounded" src="source/img/{{ $food->image }}" alt="" style="width: 80px;">
+                                <a href="details/{{$food->product_id}}"><img class="flex-shrink-0 img-fluid rounded" src="source/img/{{ $food->image }}" alt="" style="width: 80px;height: 80px; object-fit: cover;object-position: center"></a>
                                 <div class="w-100 d-flex flex-column text-start ps-4">
                                     <h5 class="d-flex justify-content-between border-bottom pb-2">
                                         <span>{{$food->product_name}}</span>
@@ -207,7 +207,7 @@
                         @foreach($others as $other)
                         <div class="col-lg-6">
                             <div class="d-flex align-items-center">
-                                <img class="flex-shrink-0 img-fluid rounded" src="source/img/{{ $other->image }}" alt="" style="width: 80px;">
+                                <a href="details/{{$other->product_id}}"><img class="flex-shrink-0 img-fluid rounded" src="source/img/{{ $other->image }}" alt="" style="width: 80px;"></a>
                                 <div class="w-100 d-flex flex-column text-start ps-4">
                                     <h5 class="d-flex justify-content-between border-bottom pb-2">
                                         <span>{{ $other->product_name  }}</span>

@@ -22,5 +22,9 @@ class HomeController extends Controller
         $chefs = Chefs::query()->get();
         return view('Page.homepage', compact('foods', 'drinks', 'others', 'chefs', 'feedbacks'));
     }
+
+    public function showAboutUs() {
+        return view('Page.about_us');
+    }
 }
 
