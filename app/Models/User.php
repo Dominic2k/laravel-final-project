@@ -17,7 +17,7 @@ class User extends Authenticatable
     public $incrementing = true; // Nếu user_id là AUTO_INCREMENT
     protected $keyType = 'int'; // Nếu user_id là số nguyên
 
-    protected $fillable = ['username', 'email', 'password', 'phone', 'address'];
+    protected $fillable = ['username', 'email', 'password', 'phone', 'address', 'reset_token'];
 
     protected $hidden = ['password', 'remember_token'];
 
@@ -30,4 +30,6 @@ class User extends Authenticatable
     {
         $this->attributes['password'] = Hash::make($value);
     }
+
+    
 }
