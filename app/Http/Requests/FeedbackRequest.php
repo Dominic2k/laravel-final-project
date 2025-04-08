@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Http;
 
 class FeedbackRequest extends FormRequest
 {
@@ -17,7 +18,23 @@ class FeedbackRequest extends FormRequest
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'message' => 'required|string|min:10|max:1000',
+            'g-recaptcha-response' => 'required',
         ];
+    }
+
+    public function withValidator($validator)
+    {
+        $validator->after(function ($validator) {
+            $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+                'secret' => env('RECAPTCHA_SECRET_KEY'),
+                'response' => $this->input('g-recaptcha-response'),
+                'remoteip' => $this->ip()
+            ]);
+
+            if (!$response->json()['success']) {
+                $validator->errors()->add('g-recaptcha-response', 'Xác thực reCAPTCHA thất bại.');
+            }
+        });
     }
 
     public function messages()
@@ -35,7 +52,9 @@ class FeedbackRequest extends FormRequest
             'message.string' => 'Feedback must be a valid text.',
             'message.min' => 'Feedback must be at least 10 characters.',
             'message.max' => 'Feedback cannot exceed 1000 characters.',
+
+            'g-recaptcha-response.required' => 'Please verify that you are not a robot.', // Thông báo lỗi reCAPTCHA
+            'g-recaptcha-response.captcha' => 'reCAPTCHA verification failed. Please try again.', // Thông báo khi reCAPTCHA không hợp lệ
         ];
     }
 }
-

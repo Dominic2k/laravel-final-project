@@ -129,7 +129,7 @@ h2, h5, h6 {
     top: 0;
     width: 30px; /* Adjust the size of the image */
     height: 30px; /* Adjust the size of the image */
-    background-image: url('/public/source/img/beef.jpg');
+    background-image: url('/public/source/img/beef_steak.jpg');
     background-size: cover;
     background-position: center;
   }

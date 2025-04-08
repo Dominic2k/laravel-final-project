@@ -23,10 +23,6 @@ class HomeController extends Controller
         return view('Page.homepage', compact('foods', 'drinks', 'others', 'chefs', 'feedbacks'));
     }
 
-    public function showDetail(){
-        return view('Page.detail_product');
-    }
-
     public function showAboutUs() {
         return view('Page.about_us');
     }

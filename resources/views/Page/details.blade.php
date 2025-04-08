@@ -1,4 +1,5 @@
 @extends('master')
+@extends('component.header')
 @section('content')
 <div class="container" style="padding-top: 150px;">
   <div id="content">
@@ -7,20 +8,20 @@
 
         <div class="row">
           <div class="col-sm-6">
-            <img src="{{asset('source/img/beef.jpg')}}" alt="Product" style="width:100%; height:auto;">
+            <img src="/source/img/{{$product->image}}" alt="Product" style="width:100%; height:auto;">
           </div>
           <div class="col-sm-6">
             <div class="single-item-body">
-              <h2 class="single-item-title" style="font-size: 24px; font-weight: bold;">Beef Steak</h2>
+              <h2 class="single-item-title" style="font-size: 24px; font-weight: bold;">{{ $product->product_name }}</h2>
               <p class="single-item-price" style="font-size: 18px;">
-                <span class="flash-sale">500,000 VND</span>
+                <span class="flash-sale">{{ number_format($product->price, 0, ',', '.') }} VND</span>
               </p>
             </div>
 
             <div class="space20">&nbsp;</div>
 
             <div class="single-item-desc">
-              <p>Delicious beef steak with high-quality ingredients and excellent taste.</p>
+              <p>{{ $product->description }}</p>
             </div>
             <div class="space20">&nbsp;</div>
 
@@ -46,7 +47,7 @@
           </ul>
 
           <div class="panel" id="tab-description">
-            <p>Detailed product description...</p>
+            <p>{{ $product->description }}</p>
           </div>
 
           <div class="panel" id="tab-comment">
